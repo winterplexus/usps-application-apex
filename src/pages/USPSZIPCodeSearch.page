@@ -153,30 +153,24 @@
             </apex:panelGroup>
             <apex:panelGroup id="outputMessageGroup" rendered="{!IF(displayOutput,true,false)}">
               <apex:inputText value="{!outputMessage}" id="outputMessageText" size="80" maxlength="160" disabled="true"/>
-            </apex:panelGroup>
+            </apex:panelGroup><p />
 
             <!-- Navigation buttons -->
-            <apex:panelGroup id="inputButton1Group">
-              <apex:commandButton action="{!back}" value="Back" id="backButton" title="Back to main page"/>
+            <apex:panelGroup >
+              <apex:commandButton action="{!back}" value="Back" id="backButton" title="Back to main page"/>&nbsp;&nbsp;
+              <apex:commandButton action="{!clear}" value="Clear" id="clearButton" title="Clear fields"/>&nbsp;&nbsp;
+              <apex:commandButton action="{!search}" value="Search" id="searchButton" title="Search and verify address using USPS ZIP code search service"/>
             </apex:panelGroup>
-            <apex:panelGroup id="inputButton2Group">
-              <apex:commandButton action="{!search}" value="Search" id="searchButton" title="Search and verify address using USPS ZIP code search service"/>&nbsp;
-              <apex:commandButton action="{!clear}" value="Clear" id="clearButton" title="Clear fields"/>
-            </apex:panelGroup>
-          </apex:panelGrid><p />
+          </apex:panelGrid>
         </apex:pageBlock>
       </apex:form>
-      <br />
-      <br />
-      <apex:image id="logo" value="{!URLFOR($Resource.wiregrass_resources, 'wiregrass.png')}"/>
-      <p>&nbsp;&copy; Wiregrass Code Technology 2014-15.&nbsp;&nbsp;Powered By: <strong>Salesforce.com</strong></p>
     </div>
   </div>
 
   <!-- Footer -->
   <div id="footer_container">
     <div id="footer">
-      &copy; Wiregrass Code Technology 2014-15. All rights reserved.
+      &copy; Wiregrass Code Technology 2014-17. All rights reserved.
     </div>
   </div>
 </apex:page>

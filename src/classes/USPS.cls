@@ -1,7 +1,7 @@
 /**
  *  USPS namespace class.
  *
- *  Copyright (c) Wiregrass Code Technology 2014-15
+ *  Copyright (c) 2014-17 Wiregrass Cloud Technology
  */
 global with sharing class USPS {
 
@@ -36,7 +36,7 @@ global with sharing class USPS {
 
 //      private final String baseURL = 'https://secure.shippingapis.com/ShippingAPI.dll?API=Verify&XML=';
 
-        private final String uid = '<USPS-UID>';
+        private final String uid = '';
 
         private final integer timeout = 5000;
 
@@ -264,7 +264,7 @@ global with sharing class USPS {
 
 //      private final String baseURL = 'https://secure.shippingapis.com/ShippingAPI.dll?API=ZipCodeLookup&XML=';
 
-        private final String uid = '<USPS-UID>';
+        private final String uid = '448STATE5207';
 
         private final integer timeout = 5000;
 
@@ -470,7 +470,7 @@ global with sharing class USPS {
 
 //      private final String baseURL = 'https://secure.shippingapis.com/ShippingAPI.dll?API=CityStateLookup&XML=';
 
-        private final String uid = '<USPS-UID>';
+        private final String uid = '448STATE5207';
 
         private final integer timeout = 5000;
 

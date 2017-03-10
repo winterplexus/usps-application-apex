@@ -3,6 +3,6 @@
     <apiVersion>38.0</apiVersion>
     <availableInTouch>false</availableInTouch>
     <confirmationTokenRequired>false</confirmationTokenRequired>
-    <description>USPS: address standardization/verification</description>
-    <label>USPSAddress</label>
+    <description>USPS: about application</description>
+    <label>USPSAbout</label>
 </ApexPage>

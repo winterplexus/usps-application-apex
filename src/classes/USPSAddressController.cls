@@ -1,7 +1,7 @@
 /**
  *  USPS address controller class.
  *
- *  Copyright (c) Wiregrass Code Technology 2014-15
+ *  Copyright (c) 2014-17 Wiregrass Cloud Technology
  */
 public with sharing class USPSAddressController {
 

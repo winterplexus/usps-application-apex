@@ -1,7 +1,7 @@
 /**
  *  USPS controller class.
  *
- *  Copyright (c) Wiregrass Code Technology 2014-15
+ *  Copyright (c) 2014-17 Wiregrass Cloud Technology
  */
 public with sharing class USPSController {
 
@@ -22,6 +22,9 @@ public with sharing class USPSController {
         }
         if (option.Equals('3')) {
             redirect = new PageReference('/apex/USPSCityStateSearch');
+        }
+        if (option.Equals('4')) {
+            redirect = new PageReference('/apex/USPSAbout');
         }
         if (redirect != null) {
             redirect.setRedirect(true);

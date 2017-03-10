@@ -22,6 +22,7 @@
             <apex:selectOption itemValue="1" itemlabel="Address Standardization/Verification"/>
             <apex:selectOption itemValue="2" itemlabel="ZIP Code Search"/>
             <apex:selectOption itemValue="3" itemlabel="City/State Search"/>
+            <apex:selectOption itemValue="4" itemlabel="About"/>
           </apex:selectRadio><p />
 
           <!-- Navigation buttons -->
@@ -30,17 +31,13 @@
           </apex:panelGroup>
         </apex:pageBlock>
       </apex:form>
-      <br />
-      <br />
-      <apex:image id="logo" value="{!URLFOR($Resource.wiregrass_resources, 'wiregrass.png')}"/>
-      <p>&nbsp;&copy; Wiregrass Code Technology 2014-15.&nbsp;&nbsp;Powered By: <strong>Salesforce.com</strong></p>
     </div>
   </div>
 
   <!-- Footer -->
   <div id="footer_container">
     <div id="footer">
-      &copy; Wiregrass Code Technology 2014-15. All rights reserved.
+      &copy; Wiregrass Code Technology 2014-17. All rights reserved.
     </div>
   </div>
 </apex:page>

@@ -1,7 +1,7 @@
 /**
  *  USPS static data class.
  *
- *  Copyright (c) Wiregrass Code Technology 2014-15
+ *  Copyright (c) 2014-17 Wiregrass Cloud Technology
  */
 global class USPSStaticData {
 
