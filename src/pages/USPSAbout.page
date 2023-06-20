@@ -23,7 +23,7 @@
           
           <!-- Logo -->
           <apex:image id="logo" value="{!URLFOR($Resource.wiregrass_resources, 'wiregrass.png')}" height="60" width="200"/>
-          <p>&nbsp;&copy; Wiregrass Code Technology 2014-17.&nbsp;&nbsp;Powered By: <strong>Salesforce.com</strong></p><p />
+          <p>&nbsp;&copy; Wiregrass Code Technology 2014-2023.&nbsp;&nbsp;Powered By: <strong>Salesforce.com</strong></p><p />
           
           <!-- Navigation buttons -->
           <apex:panelGroup >
@@ -37,7 +37,7 @@
   <!-- Footer -->
   <div id="footer_container">
     <div id="footer">
-      &copy; Wiregrass Code Technology 2014-17. All rights reserved.
+      &copy; Wiregrass Code Technology 2014-2023. All rights reserved.
     </div>
   </div>
 </apex:page>

@@ -33,5 +33,5 @@
         <members>wiregrass_resources</members>
         <name>StaticResource</name>
     </types>
-    <version>31.0</version>
+    <version>58.0</version>
 </Package>

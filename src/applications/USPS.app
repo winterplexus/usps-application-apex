@@ -2,8 +2,10 @@
 <CustomApplication xmlns="http://soap.sforce.com/2006/04/metadata">
     <defaultLandingTab>standard-home</defaultLandingTab>
     <description>USPS postal address verification and standardization.</description>
+    <formFactors>Large</formFactors>
+    <isNavAutoTempTabsDisabled>false</isNavAutoTempTabsDisabled>
+    <isNavPersonalizationDisabled>false</isNavPersonalizationDisabled>
+    <isNavTabPersistenceDisabled>false</isNavTabPersistenceDisabled>
     <label>USPS</label>
-    <tab>USPS</tab>
-    <tab>NAICS</tab>
-    <tab>Postal_Address</tab>
+    <tabs>USPS</tabs>
 </CustomApplication>

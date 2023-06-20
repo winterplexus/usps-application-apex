@@ -37,7 +37,7 @@
   <!-- Footer -->
   <div id="footer_container">
     <div id="footer">
-      &copy; Wiregrass Code Technology 2014-17. All rights reserved.
+      &copy; Wiregrass Code Technology 2014-2023. All rights reserved.
     </div>
   </div>
 </apex:page>

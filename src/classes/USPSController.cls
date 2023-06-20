@@ -1,16 +1,19 @@
-/**
- *  USPS controller class.
- *
- *  Copyright (c) 2014-17 Wiregrass Cloud Technology
- */
+//
+//  USPS Controller class.
+//
+//  Copyright (c) 2014-2023 Wiregrass Code Technology
+//
 public with sharing class USPSController {
-
     public String option { get; set; }
+
+    // Class constructor
 
     public USPSController() {
         System.LoggingLevel level = LoggingLevel.DEBUG;
         option = '1';
     }
+
+    // Next action controller    
 
     public PageReference next() {
         PageReference redirect = null;

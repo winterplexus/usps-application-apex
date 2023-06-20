@@ -1,9 +1,11 @@
-/**
- *  USPS namespace class.
- *
- *  Copyright (c) 2014-17 Wiregrass Cloud Technology
- */
+//
+//  USPS namespace and primary class.
+//
+//  Copyright (c) 2014-2023 Wiregrass Code Technology
+//
 global with sharing class USPS {
+
+    // Submitted address data object class
 
     global with sharing class SubmittedAddress {
         public String FirmName { get; set; }
@@ -15,6 +17,8 @@ global with sharing class USPS {
         public String ZIP5 { get; set; }
         public String ZIP4 { get; set; }
     }
+
+    // Processed address data object class
 
     global with sharing class ProcessedAddress {
         public String FirmName { get; set; }
@@ -29,16 +33,16 @@ global with sharing class USPS {
         public String ErrorSource { get; set; }
         public String ErrorDescription { get; set; }
     }
+    
+    // Address standardization class
 
     global with sharing class AddressStandardization {
-
-        private final String baseURL = 'http://production.shippingapis.com/ShippingAPI.dll?API=Verify&XML=';
-
-//      private final String baseURL = 'https://secure.shippingapis.com/ShippingAPI.dll?API=Verify&XML=';
-
-        private final String uid = '';
-
+        private final String baseURL  = 'http://production.shippingapis.com/ShippingAPI.dll?API=Verify&XML=';
+    //  private final String baseURL  = 'https://secure.shippingapis.com/ShippingAPI.dll?API=Verify&XML=';
+        private final String uid      = '448STATE5207';
         private final integer timeout = 5000;
+
+        // Standardize submitted address and return processed address
 
         public ProcessedAddress standardize(SubmittedAddress submitted) {
             DisplaySubmittedAddress(submitted);
@@ -62,6 +66,8 @@ global with sharing class USPS {
                 throw new USPSException('Unable to standardize address: ' + e.getMessage());
             }
         }
+
+        // Format end point using submitted address
 
         private String FormatEndPoint(SubmittedAddress submitted) {
             String requestXML = '<AddressValidateRequest USERID="' + uid + '"><Address ID="0">';
@@ -106,6 +112,8 @@ global with sharing class USPS {
             return requestXML;
         }
 
+        // Get processed address from HTTP response body
+
         private USPS.ProcessedAddress GetProcessedAddress(String responseBody) {
             USPS.ProcessedAddress processed = new USPS.ProcessedAddress();
 
@@ -127,6 +135,8 @@ global with sharing class USPS {
             }
             return processed;
         }
+
+        // Parse HTTP response body XML elements for processed address and store in processed address data object
 
         private USPS.ProcessedAddress ParseResponse(XMLStreamReader reader) {
             USPS.ProcessedAddress processed = new USPS.ProcessedAddress();
@@ -193,6 +203,8 @@ global with sharing class USPS {
             return processed;
         }
 
+        // Parse HTTP response body XML elements for error code, source and description and store in processed address data object
+
         private USPS.ProcessedAddress ParseErrorReponse(XMLStreamReader reader) {
             USPS.ProcessedAddress processed = new USPS.ProcessedAddress();
 
@@ -228,10 +240,14 @@ global with sharing class USPS {
             return processed;
         }
 
+        // Display HTTP response body for diagnostic purposes
+
         private void DisplayResponseBody(String response_body) {
             string body = response_body.replaceAll('[\r\n]','.');
             System.debug(logginglevel.DEBUG, '# response body: ' + body);
         }
+
+        // Display submitted address data object for diagnostic purposes
 
         private void DisplaySubmittedAddress(USPS.SubmittedAddress submitted) {
             System.debug(logginglevel.DEBUG, '# address standardization submitted address');
@@ -244,6 +260,8 @@ global with sharing class USPS {
             System.debug(logginglevel.DEBUG, '# submitted.ZIP5         : ' + submitted.ZIP5);
             System.debug(logginglevel.DEBUG, '# submitted.ZIP4         : ' + submitted.ZIP4);
         }
+
+        // Display processed address data object for diagnostic purposes
 
         private void DisplayProcessedAddress(USPS.ProcessedAddress processed) {
             System.debug(logginglevel.DEBUG, '# address standardization processed address');
@@ -258,15 +276,15 @@ global with sharing class USPS {
         }
     }
 
+    // ZIP code search class
+
     global with sharing class ZIPCodeSearch {
-
-        private final String baseURL = 'http://production.shippingapis.com/ShippingAPI.dll?API=ZipCodeLookup&XML=';
-
-//      private final String baseURL = 'https://secure.shippingapis.com/ShippingAPI.dll?API=ZipCodeLookup&XML=';
-
-        private final String uid = '448STATE5207';
-
+        private final String baseURL  = 'http://production.shippingapis.com/ShippingAPI.dll?API=ZipCodeLookup&XML=';
+    //  private final String baseURL  = 'https://secure.shippingapis.com/ShippingAPI.dll?API=ZipCodeLookup&XML=';
+        private final String uid      = '448STATE5207';
         private final integer timeout = 5000;
+
+        // Search for submitted address and return processed address
 
         public ProcessedAddress search(SubmittedAddress submitted) {
             DisplaySubmittedAddress(submitted);
@@ -290,6 +308,8 @@ global with sharing class USPS {
                 throw new USPSException('Unable to search ZIP code: ' + e.getMessage());
             }
         }
+
+        // Format end point using submitted address
 
         private String FormatEndPoint(SubmittedAddress submitted) {
             String requestXML = '<ZipCodeLookupRequest USERID="' + uid + '"><Address ID="0">';
@@ -322,6 +342,8 @@ global with sharing class USPS {
             return requestXML;
         }
 
+        // Get processed address from HTTP response body
+
         private USPS.ProcessedAddress GetProcessedAddress(String responseBody) {
             USPS.ProcessedAddress processed = new USPS.ProcessedAddress();
 
@@ -343,6 +365,8 @@ global with sharing class USPS {
             }
             return processed;
         }
+
+        // Parse HTTP response body XML elements for processed address and store in processed address data object
 
         private USPS.ProcessedAddress ParseResponse(XMLStreamReader reader) {
             USPS.ProcessedAddress processed = new USPS.ProcessedAddress();
@@ -403,6 +427,8 @@ global with sharing class USPS {
             return processed;
         }
 
+        // Parse HTTP response body XML elements for error code, source and description and store in processed address data object
+
         private USPS.ProcessedAddress ParseErrorReponse(XMLStreamReader reader) {
             USPS.ProcessedAddress processed = new USPS.ProcessedAddress();
 
@@ -438,10 +464,14 @@ global with sharing class USPS {
             return processed;
         }
 
+        // Display HTTP response body for diagnostic purposes
+
         private void DisplayResponseBody(String response_body) {
             string body = response_body.replaceAll('[\r\n]','.');
             System.debug(logginglevel.DEBUG, '# response body: ' + body);
         }
+
+        // Display submitted address data object for diagnostic purposes
 
         private void DisplaySubmittedAddress(USPS.SubmittedAddress submitted) {
             System.debug(logginglevel.DEBUG, '# ZIP code search submitted address');
@@ -451,6 +481,8 @@ global with sharing class USPS {
             System.debug(logginglevel.DEBUG, '# submitted.City         : ' + submitted.City);
             System.debug(logginglevel.DEBUG, '# submitted.State        : ' + submitted.State);
         }
+
+        // Display processed address data object for diagnostic purposes
 
         private void DisplayProcessedAddress(USPS.ProcessedAddress processed) {
             System.debug(logginglevel.DEBUG, '# ZIP code search processed address');
@@ -463,16 +495,16 @@ global with sharing class USPS {
             System.debug(logginglevel.DEBUG, '# processed.ZIP4         : ' + processed.ZIP4);
         }
     }
+    
+    // City and state search class
 
     global with sharing class CityStateSearch {
-
-        private final String baseURL = 'http://production.shippingapis.com/ShippingAPI.dll?API=CityStateLookup&XML=';
-
-//      private final String baseURL = 'https://secure.shippingapis.com/ShippingAPI.dll?API=CityStateLookup&XML=';
-
-        private final String uid = '448STATE5207';
-
+        private final String baseURL  = 'http://production.shippingapis.com/ShippingAPI.dll?API=CityStateLookup&XML=';
+    //  private final String baseURL  = 'https://secure.shippingapis.com/ShippingAPI.dll?API=CityStateLookup&XML=';
+        private final String uid      = '448STATE5207';
         private final integer timeout = 5000;
+
+        // Search for submitted address and return processed address
 
         public ProcessedAddress search(SubmittedAddress submitted) {
             DisplaySubmittedAddress(submitted);
@@ -497,6 +529,8 @@ global with sharing class USPS {
             }
         }
 
+        // Format end point using submitted address
+
         private String FormatEndPoint(SubmittedAddress submitted) {
             String requestXML = '<CityStateLookupRequest USERID="' + uid + '"><ZipCode ID="0">';
 
@@ -511,6 +545,8 @@ global with sharing class USPS {
             requestXML = baseURL + requestXML;
             return requestXML;
         }
+
+        // Get processed address from HTTP response body
 
         private USPS.ProcessedAddress GetProcessedAddress(String responseBody) {
             USPS.ProcessedAddress processed = new USPS.ProcessedAddress();
@@ -533,6 +569,8 @@ global with sharing class USPS {
             }
             return processed;
         }
+    
+        // Parse HTTP response body XML elements for processed address and store in processed address data object
 
         private USPS.ProcessedAddress ParseResponse(XMLStreamReader reader) {
             USPS.ProcessedAddress processed = new USPS.ProcessedAddress();
@@ -569,6 +607,8 @@ global with sharing class USPS {
             return processed;
         }
 
+        // Display processed address data object for diagnostic purposes
+
         private USPS.ProcessedAddress ParseErrorReponse(XMLStreamReader reader) {
             USPS.ProcessedAddress processed = new USPS.ProcessedAddress();
 
@@ -604,15 +644,21 @@ global with sharing class USPS {
             return processed;
         }
 
+        // Parse HTTP response body XML elements for error code, source and description and store in processed address data object
+
         private void DisplayResponseBody(String response_body) {
             string body = response_body.replaceAll('[\r\n]','.');
             System.debug(logginglevel.DEBUG, '# response body: ' + body);
         }
 
+        // Display submitted address data object for diagnostic purposes
+
         private void DisplaySubmittedAddress(USPS.SubmittedAddress submitted) {
             System.debug(logginglevel.DEBUG, '# city/state search submitted address');
             System.debug(logginglevel.DEBUG, '# subitted.ZIP5          : ' + submitted.ZIP5);
         }
+
+        // Display processed address data object for diagnostic purposes
 
         private void DisplayProcessedAddress(USPS.ProcessedAddress processed) {
             System.debug(logginglevel.DEBUG, '# city/state search processed address');
@@ -621,6 +667,8 @@ global with sharing class USPS {
             System.debug(logginglevel.DEBUG, '# processed.ZIP5         : ' + processed.ZIP5);
         }
     }
+    
+    // USPS exception class
 
     public class USPSException extends Exception {
     }

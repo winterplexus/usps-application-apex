@@ -1,10 +1,9 @@
-/**
- *  USPS ZIP code search controller class.
- *
- *  Copyright (c) 2014-17 Wiregrass Cloud Technology
- */
+//
+//  USPS ZIP Code Search controller class.
+//
+//  Copyright (c) 2014-2023 Wiregrass Code Technology
+// 
 public with sharing class USPSZIPCodeSearchController {
-
     public String inputFirmName { get; set; }
     public String inputAddress1 { get; set; }
     public String inputAddress2 { get; set; }
@@ -20,20 +19,28 @@ public with sharing class USPSZIPCodeSearchController {
     public String outputMessage { get; set; }
     public Boolean displayOutput { get; set; }
 
+    // Class constructor
+
     public USPSZIPCodeSearchController() {
         displayOutput = false;
     }
 
+    // Get states property
+
     public List<SelectOption> getStates() {
         return USPSStaticData.getStates();
     }
+
+    // Back action controller
 
     public PageReference back() {
         PageReference redirect = new PageReference('/apex/USPS');
         redirect.setRedirect(true);
         return redirect;
     }
-    
+
+    // Verify action controller 
+
     public PageReference search() {
         if (!CheckRequiredFields()) {
             return null;
@@ -77,6 +84,8 @@ public with sharing class USPSZIPCodeSearchController {
         return null;
     }
 
+    // Clear action controller
+
     public PageReference clear() {
         inputFirmName = '';
         inputAddress1 = '';
@@ -94,6 +103,8 @@ public with sharing class USPSZIPCodeSearchController {
         displayOutput = false;
         return null;
     }
+
+    // Check required fields
 
     private Boolean CheckRequiredFields() {
         Boolean valid = true;

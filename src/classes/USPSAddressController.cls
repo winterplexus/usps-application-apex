@@ -1,10 +1,9 @@
-/**
- *  USPS address controller class.
- *
- *  Copyright (c) 2014-17 Wiregrass Cloud Technology
- */
+//
+//  USPS Address controller class.
+//
+//  Copyright (c) 2014-2023 Wiregrass Code Technology
+//
 public with sharing class USPSAddressController {
-
     public String inputFirmName { get; set; }
     public String inputAddress1 { get; set; }
     public String inputAddress2 { get; set; }
@@ -24,19 +23,27 @@ public with sharing class USPSAddressController {
     public String outputMessage { get; set; }
     public Boolean displayOutput { get; set; }
 
+    // Class constructor
+
     public USPSAddressController() {
         displayOutput = false;
     }
-
+    
+    // Get states property
+    
     public List<SelectOption> getStates() {
         return USPSStaticData.getStates();
     }
+
+    // Back control action controller
 
     public PageReference back() {
         PageReference redirect = new PageReference('/apex/USPS');
         redirect.setRedirect(true);
         return redirect;
     }
+
+    // Verify control action controller
 
     public PageReference verify() {
         if (!CheckRequiredFields()) {
@@ -85,6 +92,8 @@ public with sharing class USPSAddressController {
         return null;
     }
 
+    // Clear control action controller
+
     public PageReference clear() {
         inputFirmName = '';
         inputAddress1 = '';
@@ -106,6 +115,8 @@ public with sharing class USPSAddressController {
         displayOutput = false;
         return null;
     }
+
+    // Check required fields
 
     private Boolean CheckRequiredFields() {
         Boolean valid = true;
