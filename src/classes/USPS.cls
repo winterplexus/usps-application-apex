@@ -1,7 +1,7 @@
 //
-//  USPS namespace and primary class.
+//  USPS namespace and primary class
 //
-//  Copyright (c) 2014-2023 Wiregrass Code Technology
+//  Copyright (c) 2014-2024 Code Construct Systems
 //
 global with sharing class USPS {
 

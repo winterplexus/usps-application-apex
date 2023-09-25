@@ -1,6 +1,6 @@
 <apex:page id="USPSAddress" title="USPS: Address Standardization/Verification" controller="USPSAddressController" showHeader="false" sidebar="false">
   <!-- Resources -->
-  <apex:stylesheet value="{!URLFOR($Resource.wiregrass_resources, 'wiregrass.css')}"/>
+  <apex:stylesheet value="{!URLFOR($Resource.ccs_resources, 'code-construct-systems.css')}"/>
 
   <!-- Header -->
   <div id="header_container">

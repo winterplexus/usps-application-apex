@@ -1,7 +1,7 @@
 //
-//  USPS About controller class.
+//  USPS about controller class
 //
-//  Copyright (c) 2014-2023 Wiregrass Code Technology
+//  Copyright (c) 2014-2024 Code Construct Systems
 //
 public with sharing class USPSAboutController {
     public PageReference back() {

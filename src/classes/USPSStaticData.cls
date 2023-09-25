@@ -1,7 +1,7 @@
 //
-//  USPS Static Data class.
+//  USPS static data class
 //
-//  Copyright (c) 2014-2023 Wiregrass Code Technology
+//  Copyright (c) 2014-2024 Code Construct Systems
 // 
 global class USPSStaticData {
 

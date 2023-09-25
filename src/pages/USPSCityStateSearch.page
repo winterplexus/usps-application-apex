@@ -1,6 +1,6 @@
 <apex:page id="USPSCityStateSearch" title="USPS: City/State Search" controller="USPSCityStateSearchController" showHeader="false" sidebar="false">
   <!-- Resources -->
-  <apex:stylesheet value="{!URLFOR($Resource.wiregrass_resources, 'wiregrass.css')}"/>
+  <apex:stylesheet value="{!URLFOR($Resource.ccs_resources, 'code-construct-systems.css')}"/>
 
   <!-- Header -->
   <div id="header_container">
@@ -105,7 +105,7 @@
   <!-- Footer -->
   <div id="footer_container">
     <div id="footer">
-      &copy; Wiregrass Code Technology 2014-2023. All rights reserved.
+      &copy; 2014-2024 Code Construct Systems. All rights reserved.
     </div>
   </div>
 </apex:page>

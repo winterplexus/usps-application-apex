@@ -1,7 +1,7 @@
 //
-//  USPS Address controller class.
+//  USPS address controller class
 //
-//  Copyright (c) 2014-2023 Wiregrass Code Technology
+//  Copyright (c) 2014-2024 Code Construct Systems
 //
 public with sharing class USPSAddressController {
     public String inputFirmName { get; set; }

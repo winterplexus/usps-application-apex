@@ -7,6 +7,6 @@ The application calls the following USPS's Web Tool Kit API HTTP-based services:
 
 * Address search and verification
 
-* ZIP code search
-
 * City/state search
+
+* ZIP code search

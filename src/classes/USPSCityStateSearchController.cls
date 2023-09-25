@@ -1,7 +1,7 @@
 //
-//  USPS City/State Search controller class.
+//  USPS city/state search controller class
 //
-//  Copyright (c) 2014-2023 Wiregrass Code Technology
+//  Copyright (c) 2014-2024 Code Construct Systems
 //
 public with sharing class USPSCityStateSearchController {
     public String inputZIP5 { get; set; }
